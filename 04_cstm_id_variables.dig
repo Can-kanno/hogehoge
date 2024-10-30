@@ -1,0 +1,38 @@
+#### ID Mapping Variables ####
+
+### Required 
+## Create Mapping from Source Data Directly
+simple_mapping:
+  member_id:
+    using_column: member_id
+    reg_exp_validate: '^\d{8}$'
+    filter:
+    map_table: map_tduid_memberid
+    map_initialize: true
+    map_col_name: member_id
+  ga_client_id:
+    using_column: REGEXP_REPLACE(ga_client_id, '^GA\d+\.\d+\.', '')
+    reg_exp_validate: '\d+\.\d+'
+    filter: LENGTH(ga_client_id) > 0
+    map_table: map_tduid_gaclientid
+    map_initialize: true
+    map_col_name: ga_client_id
+
+##
+# map_cross_overを利用する場合はtrue
+need_to_use: true
+
+## Create Mapping using Other Mapping Data
+map_cross_over:
+  line_uid:
+    using_column: line_uid
+    reg_exp_validate: '^\d{3,8}$'
+    cross_db: dwh
+    cross_tbl: customer
+    cross_key: member_id
+    source_tbl: map_tduid_memberid
+    source_key: member_id
+    map_table: map_tduid_lineuid
+    map_initialize: true
+    map_col_name: line_uid
+    map_incremental: false

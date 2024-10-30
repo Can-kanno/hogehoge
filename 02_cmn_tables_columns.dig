@@ -1,0 +1,17 @@
+#### Tables and Columns ####
+
+### Tables
+z_cleansed_rawdata: z_cleansed_rawdata
+z_hist_bigint_: z_hist_bigint_
+map_: map_
+mstr_device: mstr_device
+mstr_referral: mstr_referral
+mstr_session: mstr_session
+session_enriched: session_enriched
+session_log: session_log
+hist_first_access: hist_first_access
+z_hist_domain_first_access: z_hist_domain_first_access
+
+### Columns
+td_1st_cookie: td_1st_cookie
+td_uid: td_uid

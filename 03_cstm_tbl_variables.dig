@@ -1,0 +1,29 @@
+#### Data Source Variables ####
+
+### Required 
+## Data Source Tables
+rawdata_tables:
+  tbl_01:
+    db_name: database_name_1 # need to change
+    tbl_name: table_name_1 # need to change
+    active_ssc_id: true # need to change
+    custom_values: # (array) : if no additional columns, leave only custom_values
+      - member_id
+  tbl_02:
+    db_name: database_name_2 # need to change
+    tbl_name: table_name_2 # need to change
+    active_ssc_id: true # need to change
+    custom_values: # (array) : if no additional columns, leave only custom_values
+  tbl_03:
+    db_name: database_name_3 # need to change
+    tbl_name: table_name_3 # need to change
+    active_ssc_id: true # need to change
+    custom_values: # (array) : if no additional columns, leave only custom_values
+      - user_id
+
+## Extract from URL parameter
+additional_columns:
+  from_url_params: # (array) : if no additional columns from parameter, leave only from_url_params
+    - estimate_id
+    - order_id
+    - shop_id

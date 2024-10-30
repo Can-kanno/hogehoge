@@ -1,0 +1,51 @@
+#### Environment Variables ####
+
+### Required 
+## Using Domain at TD *** treasuredata.com / treasuredata.co.jp
+api_region: treasuredata.co.jp # need to change
+## set in secret *** Master API Key at TD
+# td.apikey # need to set secret
+
+### Optional
+## notification channel *** public only
+slack_ch: "@kyohei.tomita" # need to change
+## set in secret *** Bot User OAuth Token at Slack
+# slack.apikey # need to set secret
+
+#### Output Variables ####
+### Required 
+## First Log Date
+first_log_date: YYYY-MM-DD # need to change
+## Offset Hour
+offset_hour: 3 # need to change
+## Days Back *** For Daily Process
+days_back: 14 # need to change
+## Output Database
+td:
+  database: l1_weblog # need to change
+
+#### Validation Variables ####
+### Required 
+## Cookie *** Do not change the following
+cookie_validate:
+  td_client_id:
+    presto: ^(?!0{8}-0{4}-4000-8000-0{12})([-\w]{36}|[-\w]{26}|[-\w]{64})$
+    hive: ^(?!0{8}-0{4}-4000-8000-0{12})([-\\w]{36}|[-\\w]{26}|[-\\w]{64})$
+  td_global_id:
+    presto: ^(?!0{8}-0{4}-4000-8000-0{12})[-\w]{36}$
+    hive: ^(?!0{8}-0{4}-4000-8000-0{12})[-\\w]{36}$
+  td_ssc_id:
+    presto: ^\w{26}$
+    hive: ^\\w{26}$
+  ${td_1st_cookie}:
+    presto: ^\d+$
+    hive: ^\\d+$
+## Domain *** Do not change the following
+exclude_domain:
+  - 10\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])
+  - 172\.(1[6-9]|2[0-9]|3[0-1])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])
+  - 192\.168\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])
+  - localhost
+  - ^$
+  - gtm-msr.appspot.com
+
